@@ -115,7 +115,7 @@ function config_grub() {
     sed -i '/GRUB_TIMEOUT=/d' /etc/default/grub
 
     echo_info "echo 'GRUB_TIMEOUT=\"10\"' >> /etc/default/grub"
-    echo 'GRUB_TIMEOUT="10"' >> /etc/default/grub
+    echo 'GRUB_TIMEOUT="20"' >> /etc/default/grub
 
     #--------------------------------------------------
 
