@@ -103,6 +103,9 @@ function config_grub() {
 
     echo_info "echo 'GRUB_TIMEOUT_STYLE=\"menu\"' >> /etc/default/grub"
     echo 'GRUB_TIMEOUT_STYLE="menu"' >> /etc/default/grub
+    
+    
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=a74ea7df-e75d-4c44-914a-1b154facd4bc udev.log_priority=3"/GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=a74ea7df-e75d-4c44-914a-1b154facd4bc udev.log_priority=3 usbcore.autosuspend=-1"/' /etc/default/grub
 
     #--------------------------------------------------
 
