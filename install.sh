@@ -105,7 +105,7 @@ function config_grub() {
     echo 'GRUB_TIMEOUT_STYLE="menu"' >> /etc/default/grub
     
     
-    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=0143c222-4a47-41c8-935f-a40536687a83 udev.log_priority=3"/GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=0143c222-4a47-41c8-935f-a40536687a83 udev.log_priority=3 usbcore.autosuspend=-1"/' /etc/default/grub
+    sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=0143c222-4a47-41c8-935f-a40536687a83 udev.log_priority=3"/GRUB_CMDLINE_LINUX_DEFAULT="quiet apparmor=1 security=apparmor resume=UUID=0143c222-4a47-41c8-935f-a40536687a83 udev.log_priority=3 usbcore.autosuspend=-1"/' /etc/default/grub
 
     #--------------------------------------------------
 
