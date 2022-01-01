@@ -134,19 +134,23 @@ function update_grub() {
     if [[ -x "$(command -v update-grub)" ]]; then
         echo_info 'update-grub'
         update-grub
+        sed -i 's/rootflags=subvol=@  //g' /boot/grub/grub.cfg
         
     elif [[ -x "$(command -v grub-mkconfig)" ]]; then
         echo_info 'grub-mkconfig -o /boot/grub/grub.cfg'
         grub-mkconfig -o /boot/grub/grub.cfg
+        sed -i 's/rootflags=subvol=@  //g' /boot/grub/grub.cfg
         
     elif [[ -x "$(command -v grub2-mkconfig)" ]]; then
         if [[ -x "$(command -v zypper)" ]]; then
             echo_info 'grub2-mkconfig -o /boot/grub2/grub.cfg'
             grub2-mkconfig -o /boot/grub2/grub.cfg
-
+            sed -i 's/rootflags=subvol=@  //g' /boot/grub/grub.cfg
+            
         elif [[ -x "$(command -v dnf)" ]]; then
             echo_info 'grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg'
             grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+            sed -i 's/rootflags=subvol=@  //g' /boot/grub/grub.cfg
         fi
     fi
 }
